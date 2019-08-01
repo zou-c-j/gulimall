@@ -1,8 +1,8 @@
 /**
  * Copyright (c) 2018 谷粒开源 All rights reserved.
- *
+ * <p>
  * https://www.guli.cloud
- *
+ * <p>
  * 版权所有，侵权必究！
  */
 
@@ -10,7 +10,6 @@ package com.atguigu.config;
 
 import com.atguigu.dao.*;
 import com.atguigu.utils.RRException;
-import com.atguigu.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -37,16 +36,16 @@ public class DbConfig {
 
     @Bean
     @Primary
-    public GeneratorDao getGeneratorDao(){
-        if("mysql".equalsIgnoreCase(database)){
+    public GeneratorDao getGeneratorDao() {
+        if ("mysql".equalsIgnoreCase(database)) {
             return mySQLGeneratorDao;
-        }else if("oracle".equalsIgnoreCase(database)){
+        } else if ("oracle".equalsIgnoreCase(database)) {
             return oracleGeneratorDao;
-        }else if("sqlserver".equalsIgnoreCase(database)){
+        } else if ("sqlserver".equalsIgnoreCase(database)) {
             return sqlServerGeneratorDao;
-        }else if("postgresql".equalsIgnoreCase(database)){
+        } else if ("postgresql".equalsIgnoreCase(database)) {
             return postgreSQLGeneratorDao;
-        }else {
+        } else {
             throw new RRException("不支持当前数据库：" + database);
         }
     }
